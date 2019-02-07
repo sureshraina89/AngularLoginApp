@@ -1,0 +1,66 @@
+
+   <div class="container">  
+        <h2>Sign Up</h2>  
+            <form [formGroup]="SignUpForm" (ngSubmit)="onSubmit(SignUpForm)">
+            	<div class="form-group" [ngClass]="Checkvalid('username') ? 'has-error has-danger': ''"> 
+            		<label for="email">Username</label> 
+					<input formControlName="username" class="form-control" id="username" placeholder="Enter Username">
+				 	<div *ngIf="SignUpForm.get('username').touched &&  SignUpForm.get('username').hasError('required')">
+				    	<span class="help-block with-errors">Please Enter a Username</span>
+					</div>
+				</div>  
+				 
+				<div class="form-group" [ngClass]="Checkvalid('name') ? 'has-error has-danger': ''"> 
+            		<label for="email">Name</label> 
+					<input formControlName="name" class="form-control" id="name" placeholder="Enter Name">
+				 	<div *ngIf="SignUpForm.get('name').touched &&  SignUpForm.get('name').hasError('required')">
+				    	<span class="help-block with-errors">Please Enter a Name</span>
+					</div>
+				</div>  
+
+				<div class="form-group" [ngClass]="Checkvalid('email') ? 'has-error has-danger': ''"> 
+            		<label for="email">E-mail Id</label> 
+					<input formControlName="email" class="form-control" id="email" placeholder="Enter E-mail Id">
+				 	<div *ngIf="SignUpForm.get('email').touched &&  SignUpForm.get('email').hasError('required')">
+				    	<span class="help-block with-errors">Please Enter a E-mail Id</span>
+					</div>
+					<div *ngIf="SignUpForm.get('email').touched &&  SignUpForm.get('email').hasError('email') && !SignUpForm.get('email').hasError('required')">
+				    	<span class="help-block with-errors">Please Enter a Valid E-mail Id</span>
+					</div>
+				</div>  
+
+				<div class="form-group" [ngClass]="Checkvalid('mobile') ? 'has-error has-danger': ''"> 
+            		<label for="email">Mobile</label> 
+					<input formControlName="mobile" class="form-control" id="mobile" placeholder="Enter Mobile">
+				 	<div *ngIf="SignUpForm.get('mobile').touched &&  SignUpForm.get('mobile').hasError('required')">
+				    	<span class="help-block with-errors">Please Enter a Mobile Number</span>
+					</div>
+					<div *ngIf="SignUpForm.get('mobile').touched &&  (SignUpForm.get('mobile').hasError('pattern') || SignUpForm.get('mobile').hasError('minlength') || SignUpForm.get('mobile').hasError('maxlength')) && !SignUpForm.get('mobile').hasError('required')">
+				    	<span class="help-block with-errors">Please Enter a Valid Mobile Number (should be 10 digits)</span>
+					</div>
+				</div>  
+
+				<div class="form-group" [ngClass]="Checkvalid('address') ? 'has-error has-danger': ''"> 
+            		<label for="email">Address</label> 
+					<input formControlName="address" class="form-control" id="address" placeholder="Enter Address">
+				 	<div *ngIf="SignUpForm.get('address').touched && SignUpForm.get('address').hasError('maxlength')">
+				    	<span class="help-block with-errors">Address Should be less than 30 characters</span>
+					</div>
+				</div> 
+
+				<div class="form-group" [ngClass]="Checkvalid('password') ? 'has-error has-danger': ''"> 
+            		<label for="email">Password</label> 
+					<input formControlName="password" class="form-control" id="password" placeholder="Enter Password">
+				 	<div *ngIf="SignUpForm.get('password').touched &&  SignUpForm.get('password').hasError('required')">
+				    	<span class="help-block with-errors">Please Enter a Password</span>
+					</div>
+					<div *ngIf="SignUpForm.get('password').touched && (SignUpForm.get('password').hasError('pattern') || SignUpForm.get('password').hasError('minlength')) && !SignUpForm.get('password').hasError('required')">
+				    	<span class="help-block with-errors">Please Enter a Valid Password (Alpha Numeric and min 8 characters)</span>
+					</div>
+				</div>
+ 			 
+				  <button class="btn btn-primary" type="submit">Sign Up</button>
+				   <a [routerLink]="['/login']" class="btn btn-link">Back</a>
+				</form>
+    </div>  
+

@@ -1,0 +1,14 @@
+<div class="card">
+  <div class="card-body">
+    <h2 class="card-title">Logged In Angular Application</h2>
+    <br>
+    <h5 class="card-subtitle mb-2 text-muted">Current User Details</h5>
+    <br>
+    <p class="card-text">Hi {{loggedUser.username}}!</p>
+    <p class="card-text">Name {{loggedUser.name}}!</p>
+    <p class="card-text">Mobile:  {{loggedUser.mobile}}!</p>
+    <p class="card-text">E-mail Id:  {{loggedUser.email}}!</p>
+    <p class="card-text">Address:  {{loggedUser.address}}!</p>
+	<a class="card-link" [routerLink]="['/login']">Logout</a>
+  </div>
+</div>
